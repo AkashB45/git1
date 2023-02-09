@@ -1,0 +1,703 @@
+LINUX COMMANDS:
+
+-A LINUX command is a sequence of characters that are typed. 
+-The first word is the name of the command and the rest of the word are called the commands argument. 
+-Arguments give the command information that it might or specify varying behavior of the command. 
+-LINUX commands uses special type of arguments called an option.
+-An option commonly takes the form a dash followed by one/more characters.
+
+Rules for writing commands:
+1.	Lower case letters are only allowed
+2.	Space between LINUX command and the option is essential
+3.	Option is presided by a hyphen (-) sign so option is known as switches.
+4.	Two or more option available with a command can be combined.
+5.	Use backspace to erase the characters.
+6.	To cancel a command use Del key or ctrl+d.
+
+BASIC LINUX COMMANDS:
+
+DIRECTORY MANIPULATION COMMANDS
+1) MKDIR:- 
+
+Description:- This command is used to create a new directory
+Syntax:-  mkdir [directory name]
+
+$ mkdir dir1
+
+2)CD DIRNAME:-
+
+Description:- It is used to change the current directory
+Syntax:- cd dirname
+
+$ cd dir1
+      
+3)  CD:-
+
+Description:- It is used to exit the current directory 
+Syntax:- cd
+
+
+$ cd
+		        
+4) RMDIR:- 
+
+Description:- It is used to remove an directory 
+Syntax:-  rmdir dirname
+
+ $ rmdir dir1
+
+5)DF:-
+
+Description:- It summarize free disk space
+Syntax:- df
+
+ $ df
+
+
+6)DU:-
+
+Description:- It summarize disk space used
+Syntax:- du
+
+$ du 
+
+7)PWD:
+Description:- Present Working Directory
+
+Syntax:pwd
+$pwd
+
+8)TREE: 
+Description:- To list out the contents of directories in a tree like fashion.
+Syntax: tree [options]
+
+$tree
+
+$tree -f (Displays full path)
+-------------------------------------------------------------------------------------------------
+FILE MANIPULATION  AND PERMISSION COMMANDS:-
+
+Linux File Ownership:
+Every file and directory on your Unix/Linux system is assigned 3 types of owner, given below.
+
+1.User
+A user is the owner of the file. 
+By default, the person who created a file becomes its owner. Hence, a user is also sometimes called an owner.
+
+2.Group
+A user- group can contain multiple users. 
+All users belonging to a group will have the same Linux group permissions access to the file. 
+Suppose you have a project where a number of people require access to a file. 
+Instead of manually assigning permissions to each user, you could add all users to a group, and assign group permission to file such that only this group members
+and no one else can read or modify the files.
+
+3.Other
+Any other user who has access to a file. 
+This person has neither created the file, nor he belongs to a usergroup who could own the file. 
+Hence, when you set the permission for others, it is also referred as set permissions for the world.
+-----------------------------------------------------------------------------------
+
+
+1) a)CAT > FILE NAME:-
+
+Description:- This command is used to create a new file
+Syntax: cat > filename
+
+$cat > file1
+
+b) TOUCH FILENAME:-
+Description:- This command is used to create a new file
+Syntax: touch filename
+
+$touch sample.txt
+
+
+2)a)CAT FILENAME:-
+
+Description:- This displays the content of the file
+Syntax: cat filename 
+
+$cat file1
+
+b)TAC COMMAND:
+Description:- This displays the content of the file in reverse order.
+Syntax: tac filename 
+
+$tac file1
+
+3) VI FILENAME:-
+
+Description:- Open or create file 
+Syntax:vi filename
+
+$vi sample.txt
+
+
+4) MV:
+
+Description:- This moves the contet of the source file into destination file.
+Syntax:-  mv source_file_name destination_file_name
+
+       $ mv file1 file2
+      $ cat file2
+
+
+5) CP:-
+ 
+Description:- This copies the content of the source file into destination file
+Syntax:- cp source_file_name destination_file_name
+         
+$ cp file2 file3
+$ cat file3
+
+
+6) WC:-
+
+Description:- This command is used to count the number of lines, words and characters                
+                        in a file or group of files
+
+Syntax:- wc filename 
+
+$ wc file3
+
+
+7)LS:-
+Syntax:-  ls [option]
+
+a) ls
+Description:- This displays the file name in order
+$ ls
+
+b)ls -a
+Description:- Enlists the whole list of the current directory including the hidden files.
+$ls -a
+
+c)ls - l
+Description:-It will show the list in a long list format.ls - l
+$ls -l
+
+LINUX FILE PERMISSION:
+Every file and directory in your UNIX/Linux system has following 3 permissions defined for  3 different ownership.
+r = read permission
+w = write permission
+x = execute permission
+– = no permission
+
+
+EXAMPLE : ‘-rw-rw-r–‘ tells us about the  permissions 
+given to the owner, user group and the world.
+
+First part of the code is ‘rw-‘ suggests that the owner  can:
+Read the file
+Write or edit the file
+But cannot execute the file since the execute bit is set to ‘-‘.
+
+
+Second part is ‘rw-‘. It is for the user group where group-members can:
+
+Read the file
+Write or edit the file
+
+The third part is for the world which means any user. It says ‘r–‘. This means the user can only:
+
+Read the file
+
+
+d) chmode command:
+
+-change mode. 
+-To set permissions (read, write, execute) on a file/directory
+ for the owner, group and the world.
+
+Syntax:chmod permissions filename
+
+There are 2 ways to use the command –
+
+1.Absolute mode
+2.Symbolic mode
+
+1.Absolute(Numeric) Mode in Linux:
+ File permissions are represented as a three-digit octal number.
+
+
+
+Number	Permission Type	Symbol
+
+0	No Permission	—
+
+1	Execute		–x
+
+2	Write		-w-
+
+3	Execute + Write	-wx
+
+4	Read		r–
+
+5	Read + Execute	r-x
+
+6	Read +Write	rw-
+
+7	Read + Write +Execute	rwx
+
+
+SAMPLE:‘764’ implies ‘-rwxrw-r–'
+Owner can read, write and execute
+Usergroup can read and write
+World can only read
+
+
+EXAMPLE:chmod -R 755 myfiles
+Recursively (-R) Change the permissions of the directory myfiles, and all folders and files it contains, to mode 755
+
+
+2.Symbolic Mode in Linux
+In the Absolute mode, it is possible to give permissions for 
+all 3 owners.
+In the symbolic mode,it is possible to modify permissions of a specific owner. 
+It makes use of mathematical symbols to modify the Unix file permissions.
+
+Operator	Description
++	Adds a permission to a file or directory
+
+–	Removes the permission
+
+=	Sets the permission and overrides the permissions set earlier.
+
+The various owners are represented as –
+
+User 	Denotations
+u	user/owner
+
+g	group
+
+o	other
+
+a	all
+
+=>chmod u=rw,og=r new_file.txt
+
+
+=>chmod o-r *.txt
+To remove the read permissions for the “other” users from files that have a “.txt” extension. 
+
+=>chmod u+s test.txt
+Set the "Set-User-ID" bit of test.txt, so that anyone who attempts to access that file does so as if they are the owner of the file.
+
+CHOWN:For changing the ownership of a file/directory.
+chown user filename/chown user:group filename(user+group). 
+
+CHGRP:To change group-owner only.
+=>chgrp group_name filename
+
+8)CMP:-
+  
+Description:- To compare two files of any type
+
+Syntax:- cmp first_file_name second_file_name
+
+$ cmp file4 file5
+
+
+9)COMM:- 
+
+Description:- To compare two sorted file line by line
+
+Syntax:- comm first_file_name second_file_name
+
+ $ comm file4 file5
+
+9)RM:-
+
+Description:- This command is used to remove one or more files permanently from the disk
+Syntax:- rm filename
+
+$ rm file2
+
+10)DIFF:
+Description:- It will print all the difference between the two files.
+Syntax:-  diff first_file_name second_file_name
+
+$ diff file4 file 5
+----------------------------------------------------------------
+FILTER COMMANDS
+1) HEAD:-
+Description:- To display the first ten lines of the file without options
+Syntax:- head filename
+	head -n [no of lines] filename
+
+
+
+$ head fi3
+	
+$head -n 5 fi3
+
+ 2) TAIL:-
+Description:- To display the last ten lines of the file
+Syntax:-  tail filename
+	tail -n [no of lines] filename
+ $ tail fi3
+
+$tail -n 5 fi3
+
+	
+
+ 3) CUT:-
+Description:- It is used to cut the required column from the file.
+Syntax:-  cut option filename
+Output:- 
+$ cat>new
+sno     name    strength
+1       cse     12
+2       ece     34
+3       eee     12
+4       ce      32
+
+$ cut -f 1,3 new
+
+sno     strength
+1       12
+2       34
+3       12
+
+ 4)    PASTE:-
+Description:- To paste lines from one or more files vertically and display the result in the standard output
+Syntax:- paste first_file_name second_file_name
+Output:- $ cat>f1
+111
+222
+333
+444
+555
+$ cat>f2
+aaa
+bbb
+ccc
+ddd
+eee
+$ paste f1 f2
+111     aaa
+222     bbb
+333     ccc
+444     ddd
+ 555     eee   
+       
+ 5)  SORT:- 
+Description:- This display the given file contents in sorted order
+Syntax:  sort filename 
+Output:-
+$ cat>f3
+ece
+ei
+cse
+ae
+ce
+it
+eee
+
+$ sort f3
+ae
+ce
+cse
+ece
+eee
+ei
+it
+
+6) GREP:-
+Description:- This display the lines where the given pattern appears 
+Syntax:-   grep pattern filename
+	grep -i pattern filename(To disable case sensitivity)
+Output:- 
+$ grep e f3
+
+$grep -i e f3
+
+----------------------------------------------------------------------------
+
+GENERAL PURPOSE COMMANDS
+
+1)ECHO COMMAND:-
+
+Description:- The echo command prints at terminals whatever is typed on the line, it ignores the extra blank space
+Syntax:-  echo text
+
+ $ echo hai how are you
+
+
+2)MAN:-
+
+Description:- It will display all the information about the given command.
+Syntax:- man commandname
+ 
+$ man date
+
+3)HISTORY:-
+Description:- View a history of all previously executed commands in bash terminal.
+Syntax:history
+
+$history
+
+
+4)CLEAR:- 
+
+Description:- It clears the screen
+Syntax:- clear
+ $ clear
+
+
+5) EXIT:-
+Description:- To exit bash terminal.
+Syntax:exit
+$exit
+
+6) DATE:- 
+
+Description:- It displays the current along time
+Syntax:- 	date
+	date  +%m
+	date  +%h
+	date  +%y
+	date  +%d
+	date  +%h%m%s
+
+
+
+7)CAL:-
+
+Description:- It displays calendar of the current month.
+Syntax:-  	cal
+	cal year
+ $ cal
+$ cal 2023
+  -------------------------------------------------------------------------------------------
+  PROCESS:
+A process means program in execution.
+It generally takes an input, processes it and gives us the appropriate output.
+There are basically 2 types of processes.
+
+Foreground processes:  (interactive processes)
+ The processes which are to be executed or initiated by the user or the programmer, they can not be initialized by system services.
+ These processes take input from the user and return the output. 
+While these processes are running we can not directly initiate a new process from the same terminal.
+
+Background processes: (non interactive processes)
+These are the processes that are to be executed or initiated by the system itself or by users, though they can even be managed by users. 
+These processes have a unique PID or process if assigned to them and we can initiate other processes within the same terminal from which they are initiated.
+
+PROCESS COMMANDS:
+
+1.sleep:
+It pauses the execution for an amount of time which is defined by NUMBER. (seconds by default).(if required specify s,m,h,d as suffix).
+
+$sleep number
+$sleep 10
+$sleep 5m
+
+2.jobs:
+To list the jobs that you are running in the background and in the foreground.
+
+$jobs
+
+3.top:
+To track the running processes.
+$ top
+
+4.a) ps:
+Process Status.It displays the currently-running processes.
+$ps
+
+b) ps -f: 
+Full information
+$ps -f
+
+c) ps -aux/ps -ef:
+To List currently running process in full format
+$ps -aux/ps -ef
+
+d) ps -a:
+To view all processes with the exception of processes associated with the terminal.
+$ps -a
+
+e) ps -c [command] :	List process for given command.
+$ps -u [commandname]
+
+f)ps -ax:
+To view all current processes executing.
+$ps -ax
+
+g)pstree:
+Shows process in hierarchy
+$pstree
+
+5.kill:
+To stop a process. kill command sends a signal to the process.
+
+a)$kill -l/kill -L
+To list all the signals.
+
+b)$kill -9 [pid]/kill [pid]
+This command will send a ‘SIGKILL’ signal to the process.
+
+c)$killall name
+killall orders to end running cycles dependent on the names and different attributes. 
+$killall sleep
+
+
+6.fg:
+a)This brings the most recently run job/process to the foreground.
+$fg
+
+b)To select a specific job to bring to the foreground.
+$fg job
+
+7.bg:
+To list and manage background jobs.
+$bg:
+
+8.nice -n [priority] [processname]
+To run processes with priority.Priority can be between -20 to 19.By default 0.
+$nice -n 5 sleep 100 
+
+9.free:
+Displays summary of RAM usage, including total, used, free, shared, and available memory and swap space. 
+ Helps to monitor resource usage and allows an admin to determine if there's enough room for running new programs.
+$free
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ARCHIVAL COMMANDS:
+I)tar command:
+
+‘tar’ stands for tape archive.
+tar command in Linux is provides archiving functionality in Linux. 
+Used to create Archive and extract the Archive files.
+tar command is used to create compressed or uncompressed Archive files and also maintain and modify them.
+An Archive file is a file that is composed of one or more files along with metadata. 
+Archive files are used to collect multiple data files together into a single file for easier portability and storage, or simply to compress files to use less storage space. 
+
+Syntax: tar [options] [archive-file] [file or directory to be archived]
+
+Options: 
+-c : Creates Archive 
+-x : Extract the archive 
+-f : creates archive with given filename 
+-t : displays or lists files in archived file 
+-u : archives and adds to an existing archive file 
+-v : Displays Verbose Information 
+-A : Concatenates the archive files 
+-z : zip, tells tar command that creates tar file using gzip 
+-j : filter archive tar file using tbzip 
+-W : Verify a archive file 
+-r : update or add file or directory in already existed .tar file 
+
+
+1. Creating an uncompressed tar Archive using option -cvf :  Creates a tar file called file.tar , Archive of all .txt files in current directory. 
+
+$ tar cvf file.tar *.txt
+
+2. Extracting files from Archive using option -xvf :  extracts files from Archives. 
+
+$ tar xvf file.tar
+
+3.gzip compression on the tar Archive, using option -z :  Creates a tar file called file.tar.gz which is the Archive of .txt files.  
+
+$ tar cvzf file1.tar.gz *.txt
+
+4.Extracting a gzip tar Archive *.tar.gz using option -xvzf : Extracts files from tar archived file.tar.gz files.  
+
+$ tar xvzf file1.tar.gz
+
+5.Untar :extract or untar multiple files from the tar, tar.gz  archive file.
+
+$ tar xvf file.tar sample.txt
+
+$tar zxvf file1.tar.gz sample.txt
+
+6.list the contents and specify the tarfile using option -tf: List the entire list of archived file.
+
+$ tar tf file.tar
+
+
+II) zip command:
+-Compression and file packaging utility.
+- Filename.zip 
+
+1. Create a zip file:
+Syntax :zip [options] zipfile files_list  
+
+ zip myzipfile.zip file1.txt
+
+ 
+2.Extract files from a zip file:
+ $zip myzipfile.zip file1.txt
+
+3.Removes the file from the zip archive using option -d:
+$zip -d myzipfile.zip file1.txt  
+
+III)gzip:(.gz)
+Allows to reduce the size of a file and keep the original file mode, ownership, and timestamp.
+
+Syntax :
+
+ gzip [Options] [filenames]
+
+1.Creates a compressed file & deletes the original file.(untitled.txt.gz)
+$gzip untitled.txt
+
+2.-d option : decompress a file using the “gzip” command
+$$ gzip -d untitled.txt
+--------------------------------------------------------------------------------------------------
+Linux System Administration Commands:
+
+-Linux system administration is a process of setting up, configuring, and managing a computer system in a Linux environment. 
+-System administration involves creating a user account, taking reports, performing backup, updating configuration files, documentation, and performing recovery actions. 
+-The user who manages the server, fixes configuration issues, recommends new software updates, and updates document is the system administrator.
+
+1.$who:
+Displays the users currently logged in to Linux operating system.
+
+2.$who am i:
+To know about the actual system's username.
+
+3. $w:
+To display the complete list of users and their activities as well, who are logged-in the current system.
+
+4.$env:
+Displays the current environment variables and their values.
+
+5.$users:
+To show the user names of users currently logged in to the current host.
+
+6.$free:
+Gives information about used and unused memory usage and swap memory of a system.
+
+7.$uptime:
+To find out how long the system is active.
+
+8.$mount:
+Attaches the filesystem of an external device to the filesystem of a system.
+Displays all currently mounted file system on a system.
+
+9.$id:
+To see the user identification information.To display user’s Id and group’s Ids
+
+10.$last:
+Displays information about the last logged-in users. 
+   
+11.su: 
+To run a shell as another user.
+$su username
+  
+12.sudo:Super User DO
+It is used as a prefix of some commands which can be executed only by superuser . 
+When “sudo” prefixed  with any command, it will run that command with elevated privileges.  
+Allows a user with proper permissions to execute a command as superuser.
+#sudo ls
+
+13.$info:
+Display information in the document format.
+
+14.find:
+ To find a particular file within a directory.
+$find . -name "*.txt" 
+
+---------------------------------
